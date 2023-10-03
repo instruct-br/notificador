@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "notificador"
+version = "0.1.0"
+description = "Serviço de envio de notificações"
+authors = ["Julia Dutra <julia.dutra@instruct.com.br>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "0.68.0"
+uvicorn = "0.15.0"
+mongo = "^0.2.0"
+motor = "^3.1"
+aio-pika = "9.0.4"
+sendgrid = "^6.10.0"
+requests = "2.31.0"
+
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

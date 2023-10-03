@@ -1,0 +1,30 @@
+version: '3'
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: teste
+      MONGO_INITDB_ROOT_PASSWORD: teste
+      MONGO_INITDB_DATABASE: teste
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./volumes/mongodb:/data/db:z
+
+  rabbitmq:
+    image: "rabbitmq:management"
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  notificador:
+    build:
+      context: .
+    container_name: notificador
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/app
+    env_file: ./.env
